@@ -21,7 +21,7 @@ function SearchBar() {
   }
 
   function handleTrackingId(e) {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault();
     fetchShipping();
     setIsOpen(false);
     setOrderNum("");

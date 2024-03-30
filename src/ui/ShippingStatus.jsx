@@ -6,6 +6,7 @@ import StepperT from "./ShippingStepper";
 function ShippingData() {
   const { orderData, t } = usePosts();
   const { CurrentStatus } = orderData;
+
   return (
     <section className="pb-5 bg-white border-solid border-2 border-gray-10 rounded">
       <header className="border-b-4 border-[#f3f2f3] flex justify-between p-5">

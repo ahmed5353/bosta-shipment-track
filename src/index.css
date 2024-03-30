@@ -6,7 +6,7 @@
 
 @layer components {
   .navitem {
-    @apply block py-2 pr-4 pl-3 text-[#161e3a] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 text-lg font-semibold  md:dark:hover:bg-transparent;
+    @apply block py-2 pr-4 pl-3 text-[#161e3a] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 text-base font-semibold  md:dark:hover:bg-transparent;
   }
 
   :root {
