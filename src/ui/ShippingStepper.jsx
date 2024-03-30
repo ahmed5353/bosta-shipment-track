@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Stepper from "@mui/material/Stepper";
@@ -53,13 +52,11 @@ const ColorlibStepIconRoot = styled("div")(
     borderRadius: "50%",
     border: "2px solid",
     marginBottom: -4,
-
     justifyContent: "center",
-    alignItems: "center",
 
+    alignItems: "center",
     ...(ownerState.active && {
       backgroundColor: `${customColorStatus}`,
-
       border: ` ${orderData?.CurrentStatus.state === "CANCELLED" && "none"} `,
     }),
 
@@ -69,13 +66,7 @@ const ColorlibStepIconRoot = styled("div")(
       marginTop: 15,
       marginInlineEnd: -999,
       marginBottom: 8,
-      // backgroundColor: "#35b600",
-      // backgroundColor: `${
-      //   orderData?.CurrentStatus.state === "CANCELLED" && "red"
-      // }${orderData?.CurrentStatus.state === "DELIVERED_TO_SENDER" && "#f9ba02"}
-      // }${orderData?.CurrentStatus.state === "ACCEPTED" && "#35b600"}`,
       backgroundColor: `${customColorStatus}`,
-
       border: 0,
       color: "#fff",
     }),
@@ -84,17 +75,8 @@ const ColorlibStepIconRoot = styled("div")(
 
 function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
-  const { orderData } = usePosts();
+  const { orderData, customColorStatus } = usePosts();
   console.log(orderData);
-
-  const customColorStatus =
-    orderData?.CurrentStatus.state === "CANCELLED"
-      ? "red"
-      : orderData.CurrentStatus.state === "DELIVERED_TO_SENDER"
-      ? "#f9ba02"
-      : orderData?.CurrentStatus.state === "DELIVERED"
-      ? "#35b600"
-      : "";
 
   const icons = {
     1: <BoxIcon />,
@@ -119,21 +101,8 @@ function ColorlibStepIcon(props) {
   );
 }
 
-// const steps = [
-//   "Shipment Created",
-//   "Received from the merchant",
-//   // {
-//   //   status: "Came out for delivery",
-//   //   merchantCancelled: "Declined from the merchant",
-//   // },
-
-//   "Came out for delivery",
-
-//   "Delivered",
-// ];
-
 export default function StepperT() {
-  const { orderData, t } = usePosts();
+  const { orderData, t, customColorStatus } = usePosts();
   const { CurrentStatus } = orderData;
   const checkCancel = CurrentStatus.state === "CANCELLED";
   const checkDeliveredToSender = CurrentStatus.state === "DELIVERED_TO_SENDER";
@@ -141,23 +110,9 @@ export default function StepperT() {
   const steps = [
     t("ShipmentCreated"),
     t("ReceivedFromTheMerchant"),
-    // {
-    //   status: "Came out for delivery",
-    //   merchantCancelled: "Declined from the merchant",
-    // },
-
     t("CameOutOrDelivery"),
-
     t("Delivered"),
   ];
-  const customColorStatus =
-    orderData?.CurrentStatus.state === "CANCELLED"
-      ? "red"
-      : orderData.CurrentStatus.state === "DELIVERED_TO_SENDER"
-      ? "#f9ba02"
-      : orderData?.CurrentStatus.state === "DELIVERED"
-      ? "#35b600"
-      : "";
 
   return (
     <Stack className="mt-10">
@@ -176,8 +131,6 @@ export default function StepperT() {
             <StepLabel
               StepIconComponent={ColorlibStepIcon}
               customColorStatus={customColorStatus}
-              // className="  bg-red-500"
-              // className=" h-24 bg-red-500 "
             >
               <span className="font-semibold flex-col gap-2 flex justify-center items-center ">
                 <div className="flex flex-col font-semibold">{label}</div>

@@ -43,7 +43,10 @@ export default function DataTable() {
                 <TableCell className="text-start">
                   {extractTimeFromDate(row.timestamp)}
                 </TableCell>
-                <TableCell className="text-start">{t(row.state)}</TableCell>
+                <TableCell className="text-start">
+                  {/* {t(row.state.replaceAll("_", " "))} */}
+                  {t(row.state)}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -14,6 +14,15 @@ function PostProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
 
+  const customColorStatus =
+    orderData?.CurrentStatus.state === "CANCELLED"
+      ? "red"
+      : orderData?.CurrentStatus.state === "DELIVERED_TO_SENDER"
+      ? "#f9ba02"
+      : orderData?.CurrentStatus.state === "DELIVERED"
+      ? "#35b600"
+      : "";
+
   const value = useMemo(() => {
     return {
       orderNum,
@@ -27,6 +36,7 @@ function PostProvider({ children }) {
       t,
       isLoading,
       setIsLoading,
+      customColorStatus,
     };
   }, [isOpen, isRtl, orderData, orderNum]);
 
