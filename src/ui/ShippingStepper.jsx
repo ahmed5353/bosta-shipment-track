@@ -76,7 +76,6 @@ const ColorlibStepIconRoot = styled("div")(
 function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
   const { orderData, customColorStatus } = usePosts();
-  console.log(orderData);
 
   const icons = {
     1: <BoxIcon />,
