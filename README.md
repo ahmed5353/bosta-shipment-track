@@ -11,7 +11,7 @@
 2. Navigate to the project directory:
 
     ```
-    cd bosta-shipment-track    ```
+    cd bosta-shipment-track
 
 3. Install dependencies:
 
