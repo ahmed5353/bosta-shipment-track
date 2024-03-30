@@ -10,6 +10,7 @@ export async function fetchShipingData(orderNum) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    alert("Please Write a valid tracking number");
+    console.error("There was a problem with your fetch operation:", error);
   }
 }
