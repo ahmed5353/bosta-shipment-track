@@ -17,9 +17,8 @@ function App() {
       <main className="px-20">
         <SearchBar />
         {isLoading && <Loader />}
-
-        {orderData && <HomePage />}
         {!orderData && <ComingSoon />}
+        {orderData && <HomePage />}
       </main>
     </div>
   );
